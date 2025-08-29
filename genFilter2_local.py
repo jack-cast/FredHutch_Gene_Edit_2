@@ -103,7 +103,8 @@ def process_sample(sample_info, source_dir, result_dir, run_pear=True, run_filte
     if run_filter and success:
         filter_script = f"{base_path}/scripts/geneEditFilter.py"
         if os.path.exists(filter_script):
-            filter_cmd = f"python3 {filter_script} {base_path}/ {test}.assembled {result_dir} {test} {config_file}"
+            result_path = f"{base_path}/{result_dir}"
+            filter_cmd = f"python3 {filter_script} {base_path}/ {test}.assembled {result_path} {test} {config_file}"
             if not run_command(filter_cmd, f"Gene editing filter"):
                 success = False
         else:
@@ -113,7 +114,8 @@ def process_sample(sample_info, source_dir, result_dir, run_pear=True, run_filte
     if run_output and success:
         output_script = f"{base_path}/scripts/geneEditOutput.py"
         if os.path.exists(output_script):
-            output_cmd = f"python3 {output_script} {base_path}/ {test}.assembled {result_dir} {test} {config_file}"
+            # Try passing just the result directory name, not the full path
+            output_cmd = f"python3 {output_script} {base_path}/ {test}.assembled {result_dir}/ {test} {config_file}"
             if not run_command(output_cmd, f"Gene editing output"):
                 success = False
         else:
