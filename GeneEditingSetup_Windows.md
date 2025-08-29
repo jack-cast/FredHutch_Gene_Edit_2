@@ -31,7 +31,7 @@
    cd /mnt/c/Users/[YourUsername]/Desktop/GeneEditing/
    mkdir NewProject
    cd NewProject
-   mkdir fastq_files scripts stitched_reads aligned_reads results
+   mkdir fastq_files
    ```
 
 2. **Copy input files**:
@@ -66,10 +66,6 @@
 6. **Run analysis**:
    ```bash
    cd scripts
-   python3 genFilter2_local.py mk_run.txt [your_username] --run --nopear
+   python3 genFilter2_local.py mk_run.txt [your_username] --run
    ```
 
-7. **Check results**:
-   ```bash
-   ls -la ../results/
-   ```
