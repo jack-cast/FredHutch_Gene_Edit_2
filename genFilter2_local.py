@@ -72,10 +72,7 @@ def process_sample(sample_info, source_dir, result_dir, run_pear=True, run_filte
     print(f"{'='*50}")
     
     # Set up paths - we're running from scripts/ directory
-    if source_dir == "LocalTest" or source_dir == "NewProject":
-        base_path = ".."
-    else:
-        base_path = f"../{source_dir}"
+    base_path = ".."
     
     # File paths
     test = condition
@@ -202,3 +199,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
